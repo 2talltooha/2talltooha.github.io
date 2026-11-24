@@ -52,9 +52,9 @@ window.PORTFOLIO = {
   site: {
     // Put your résumé PDF in the assets folder, then write its path here,
     // for example "assets/Taha-El-Ghadi-Resume.pdf".
-    resume: "",
+    resume: "assets/Taha-El-Ghadi-Resume.pdf",
     // The address of your Devpost profile, for example "https://devpost.com/yourname".
-    devpost: "",
+    devpost: "https://devpost.com/2talltooha",
     // Optional photo for the About section. Save a portrait as
     // assets/img/about/taha.jpg (800 x 1000 px, under 200 KB) and write that path in src.
     photo: {
@@ -76,7 +76,7 @@ window.PORTFOLIO = {
       tags: ["ESP32", "60 GHz mmWave radar", "C++ (Arduino)", "Python", "FastAPI"],
       links: [
         { label: "GitHub", url: "https://github.com/2talltooha/stillwave" },
-        { label: "Devpost", url: "" },
+        { label: "Devpost", url: "https://devpost.com/software/stillwave-z1tdqo" },
       ],
       image: {
         src: "",
@@ -100,8 +100,8 @@ window.PORTFOLIO = {
           "What the data did show was a sharp drop in the rate around each hold. So Stillwave flags a \"breathing dip\" when the rate falls by 6 or more breaths per minute within 30 seconds while the person is lying still.",
         ],
         learned: [
-          "In a 15-minute test on myself, the dip detector caught 8 of 8 deliberate breath holds, most of them 25 to 40 seconds long, with 1 false alarm. It has also tracked a full 6.5-hour night of real sleep.",
-          "The limits matter more than the hit rate. All of the testing was informal and on one person. A normal slow-down in breathing looks the same as a hold, and the detector flags more when I'm awake and fidgeting, so a dip count is not an apnea count. Stillwave has not been compared against a reference sensor, and it is not a medical device.",
+          "These numbers are from a one-night self-test, not a validated accuracy study. In a 15-minute session on myself, the dip detector caught 8 of 8 deliberate breath holds, most of them 25 to 40 seconds long, with 1 false alarm. It also recorded 6.5 hours of my own sleep.",
+          "The limits matter more than the hit rate. All of the testing was on one person, on one night. A normal slow-down in breathing looks the same as a hold, and the detector flags more when I'm awake and fidgeting, so a dip count is not an apnea count. Stillwave has not been compared against a reference sensor, and it is not a medical device.",
           "What I took from it: test what a sensor really outputs before designing around its listed features. The features I planned to rely on never fired, and the usable signal was somewhere else.",
         ],
       },
@@ -113,13 +113,12 @@ window.PORTFOLIO = {
       title: "Aegis",
       status: "award",
       statusLabel: "Market Master Award",
-      context: "OpenClaw Hack Toronto · May 2026 · Team project",
+      context: "OpenClaw Hack Toronto · May 2026 · Team of 6",
       hook: "A medication support agent that lives in WhatsApp: a patient sends a photo of a medication or a text, and a caregiver sees the structured record on a dashboard.",
-      role: "[PLACEHOLDER: what you personally built, for example the FastAPI and Twilio backend, the Claude vision step or the React dashboard. Add the team size.]",
+      role: "Team of six. I worked mostly on the backend.",
       tags: ["FastAPI", "Twilio (WhatsApp)", "Claude vision", "SQLite", "React"],
       links: [
-        { label: "Devpost", url: "" },
-        { label: "GitHub", url: "" },
+        { label: "GitHub", url: "https://github.com/muhammadbinuc-cpu/OpenClaw-Hack--Elder-Agent" },
       ],
       image: {
         src: "",
@@ -135,8 +134,8 @@ window.PORTFOLIO = {
         ],
         built: [
           "Aegis is a care agent that lives in WhatsApp. A patient sends a photo of a medication or a text message. The system extracts the details, logs them and shows them as structured medication data on a caregiver dashboard.",
-          "We built it as a team in one day at OpenClaw Hack Toronto in May 2026 and demoed it live to judges at Toronto Tech Week, where it won the Market Master Award.",
-          "[PLACEHOLDER: \"My part was ...\" and the pieces you built yourself.]",
+          "We built it as a team of six in one day at OpenClaw Hack Toronto in May 2026 and demoed it live to judges at Toronto Tech Week, where it won the Market Master Award.",
+          "My part was mostly the backend. [PLACEHOLDER: which backend files were mine. None of the public commits are under my GitHub account.]",
         ],
         how: [
           "WhatsApp messages reach a FastAPI backend through Twilio webhooks. Photos go to Claude's vision model, which reads the prescription details. The results are stored in SQLite and shown to the caregiver on a React dashboard.",
@@ -177,12 +176,11 @@ window.PORTFOLIO = {
           "Tremor is usually assessed by eye, with rating scales. A motion sensor can add a number: the dominant frequency, and how it changes between rest, holding a posture and moving. I wanted to find out whether a wearable built from hobby parts can measure that frequency accurately.",
         ],
         built: [
-          "A wearable prototype. An ESP32 reads a 6-axis MPU-6500 inertial measurement unit and shows live readings on a small OLED display. It is designed to measure tremor in three conditions: at rest, while holding a posture and during movement (kinetic tremor).",
-          "[PLACEHOLDER: where it is worn, how it is powered and what works today.]",
+          "A wearable prototype. An ESP32 reads a 6-axis MPU-6500 inertial measurement unit and shows the result on a 0.96 inch OLED. It is designed to measure tremor in three conditions: at rest, while holding a posture and during movement (kinetic tremor). The sketch does not switch those conditions itself. They are how the device is held.",
+          "The board runs from its own 3.3 V supply while I test it on the bench. [PLACEHOLDER: where it is worn.]",
         ],
         how: [
-          "The IMU measures acceleration and rotation on three axes each. An FFT (fast Fourier transform) turns a recording of that motion into a frequency spectrum, and the tallest peak is the dominant tremor frequency.",
-          "[PLACEHOLDER: sampling rate, recording length and whether the FFT runs on the device or on a computer.]",
+          "The firmware samples the accelerometer at 100 Hz for 2.56 seconds (256 samples). It subtracts the mean, applies a Hann window, and runs an FFT on the ESP32, not on a laptop. It searches the summed three-axis spectrum between 3 and 15 Hz, then shows the peak frequency and the amplitude on the OLED and over serial.",
         ],
         learned: [
           "Validation is planned, not finished. The plan is to run the device against vibration sources of known frequency, compare the measured peak with the true value and report the error.",
@@ -201,7 +199,7 @@ window.PORTFOLIO = {
       statusLabel: "",
       context: "Self-directed · Solo",
       hook: "Rerunning the differential expression analysis of a public bulk RNA-seq dataset with DESeq2, then comparing my results with the original paper's.",
-      role: "Solo. Dataset: [PLACEHOLDER: GEO accession]. Paper: [PLACEHOLDER: first author, journal, year].",
+      role: "Solo. In progress.",
       tags: ["R", "DESeq2", "Bulk RNA-seq"],
       links: [
         { label: "GitHub", url: "" },

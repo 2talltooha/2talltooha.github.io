@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found · Taha El Ghadi</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#FAF8F3">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .miss {
+      min-height: calc(100vh - var(--header-h));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-block: 4rem;
+    }
+    .miss h1 {
+      font-size: clamp(2rem, 1.4rem + 3vw, 3rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .miss p { margin-top: 1rem; max-width: 32rem; }
+    .miss .hero-actions { margin-top: 1.75rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">Taha El Ghadi</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="miss">
+    <div class="container">
+      <p class="section-num">404</p>
+      <h1>That page is not here.</h1>
+      <p>The link may be old, or the address may have a typo. The homepage has the projects, research notes and contact links.</p>
+      <div class="hero-actions">
+        <a class="btn btn--primary" href="/">Home</a>
+        <a class="btn" href="/#projects">Projects</a>
+        <a class="btn" href="/#contact">Contact</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

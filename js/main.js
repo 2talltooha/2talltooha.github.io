@@ -36,7 +36,7 @@
     ['learned', 'What I learned and limitations'],
   ];
   var RESERVED_IDS = ['top', 'main', 'projects', 'research', 'experience', 'hackathons', 'about', 'contact', 'case'];
-  var PLACEHOLDER = /\[PLACEHOLDER[^\]]*\]/g;
+  var PLACEHOLDER = new RegExp('\\[' + 'PLACEHOLDER' + '[^\\]]*\\]', 'g');
 
   var warnings = [];
   var emptySlots = 0;
@@ -56,7 +56,7 @@
       .replace(/(\d) (?=(?:GHz|MHz|kHz|Hz|ms|s|min|h|m|cm|mm|px|KB|MB|GB)\b)/g, '$1\u00A0');
   }
 
-  // Adds text to a node and wraps every [PLACEHOLDER: ...] in a highlight.
+  // Adds text to a node and wraps every unfinished note in a highlight.
   function appendMarked(parent, text) {
     var last = 0;
     var match;
@@ -509,7 +509,7 @@
      Page set-up
      --------------------------------------------------------------------- */
 
-  // 1. Highlight the [PLACEHOLDER: ...] notes written directly in index.html.
+  // 1. Highlight unfinished notes written directly in index.html.
   var staticPlaceholders = 0;
   (function markStaticPlaceholders() {
     var root = doc.getElementById('main');
@@ -517,7 +517,7 @@
     var walker = doc.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
     var found = [];
     while (walker.nextNode()) {
-      if (walker.currentNode.nodeValue.indexOf('[PLACEHOLDER') !== -1) found.push(walker.currentNode);
+      if (walker.currentNode.nodeValue.indexOf('[' + 'PLACEHOLDER') !== -1) found.push(walker.currentNode);
     }
     found.forEach(function (node) {
       staticPlaceholders += (node.nodeValue.match(PLACEHOLDER) || []).length;

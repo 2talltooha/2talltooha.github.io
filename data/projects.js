@@ -36,9 +36,9 @@
     caseStudy   Four parts, each a list of paragraphs. A paragraph that starts
                 with "- " becomes a bullet point.
 
-  PLACEHOLDERS
-    Anything written as [PLACEHOLDER: ...] shows up highlighted in yellow on
-    the page. Replace each one with real text, or delete the sentence.
+  UNFINISHED NOTES
+    Unfinished notes can be marked for a yellow highlight. None are in the
+    page right now.
 
   QUOTES
     To put a double quote inside text, write \" (backslash, then the quote).
@@ -113,9 +113,9 @@ window.PORTFOLIO = {
       title: "Aegis",
       status: "award",
       statusLabel: "Market Master Award",
-      context: "OpenClaw Hack Toronto · May 2026 · Team of 6",
+      context: "OpenClaw Hack Toronto · May 2026",
       hook: "A medication support agent that lives in WhatsApp: a patient sends a photo of a medication or a text, and a caregiver sees the structured record on a dashboard.",
-      role: "Team of six. I worked mostly on the backend.",
+      role: "Team member on a 6-person team. First hackathon. Contributed to the idea, parts of the backend and frontend, and the pitch and demo.",
       tags: ["FastAPI", "Twilio (WhatsApp)", "Claude vision", "SQLite", "React"],
       links: [
         { label: "GitHub", url: "https://github.com/muhammadbinuc-cpu/OpenClaw-Hack--Elder-Agent" },
@@ -129,21 +129,13 @@ window.PORTFOLIO = {
       ],
       caseStudy: {
         problem: [
-          "Aegis is meant to help seniors and their caregivers keep track of medications.",
-          "[PLACEHOLDER: one or two sentences on the specific problem your team saw, and why you chose WhatsApp instead of a new app.]",
+          "Aegis is a medication support agent in WhatsApp. A patient sends a photo of a medication or a text, and a caregiver sees the structured record on a dashboard.",
         ],
         built: [
-          "Aegis is a care agent that lives in WhatsApp. A patient sends a photo of a medication or a text message. The system extracts the details, logs them and shows them as structured medication data on a caregiver dashboard.",
-          "We built it as a team of six in one day at OpenClaw Hack Toronto in May 2026 and demoed it live to judges at Toronto Tech Week, where it won the Market Master Award.",
-          "My part was mostly the backend. [PLACEHOLDER: which backend files were mine. None of the public commits are under my GitHub account.]",
+          "Built by a team of six at OpenClaw Hack Toronto in May 2026. It won the Market Master Award at Toronto Tech Week.",
         ],
-        how: [
-          "WhatsApp messages reach a FastAPI backend through Twilio webhooks. Photos go to Claude's vision model, which reads the prescription details. The results are stored in SQLite and shown to the caregiver on a React dashboard.",
-        ],
-        learned: [
-          "Aegis is a one-day hackathon prototype, not a product.",
-          "[PLACEHOLDER: one thing you learned building it and its main limitation. For example: what happens when the model misreads a label, and whether it was ever tested with real patients.]",
-        ],
+        how: [],
+        learned: [],
       },
     },
 
@@ -154,8 +146,8 @@ window.PORTFOLIO = {
       status: "progress",
       statusLabel: "",
       context: "Self-directed · 2026 · Solo",
-      hook: "An ESP32 wearable designed to measure tremor at rest, in posture and in motion, with validation planned against known-frequency vibration instead of human subjects.",
-      role: "Solo: the hardware, the C++ firmware and the validation plan.",
+      hook: "In progress. A wrist or hand wearable designed to measure tremor: an ESP32 samples motion at 100 Hz and runs an FFT on the device.",
+      role: "Solo. The design and the firmware sketch. No validation results yet.",
       tags: ["ESP32", "MPU-6500 IMU", "OLED", "C++", "FFT"],
       links: [
         { label: "GitHub", url: "" },
@@ -169,24 +161,20 @@ window.PORTFOLIO = {
       ],
       note: {
         label: "Method note",
-        text: "Validation is planned against vibration sources of known frequency, not people. Research on human subjects needs ethics approval, so I make no claims about patients.",
+        text: "Planned validation uses a known-frequency vibration source, not people. No results yet. Research on human subjects needs ethics approval.",
       },
       caseStudy: {
         problem: [
-          "Tremor is usually assessed by eye, with rating scales. A motion sensor can add a number: the dominant frequency, and how it changes between rest, holding a posture and moving. I wanted to find out whether a wearable built from hobby parts can measure that frequency accurately.",
+          "I want a number for tremor frequency from a wearable I can build myself, before any claim about how accurate it is.",
         ],
         built: [
-          "A wearable prototype. An ESP32 reads a 6-axis MPU-6500 inertial measurement unit and shows the result on a 0.96 inch OLED. It is designed to measure tremor in three conditions: at rest, while holding a posture and during movement (kinetic tremor). The sketch does not switch those conditions itself. They are how the device is held.",
-          "The board runs from its own 3.3 V supply while I test it on the bench. [PLACEHOLDER: where it is worn.]",
+          "In progress. It is meant to be worn on the wrist or hand. The design is an ESP32 with an MPU-6500 accelerometer and a small OLED.",
         ],
         how: [
-          "The firmware samples the accelerometer at 100 Hz for 2.56 seconds (256 samples). It subtracts the mean, applies a Hann window, and runs an FFT on the ESP32, not on a laptop. It searches the summed three-axis spectrum between 3 and 15 Hz, then shows the peak frequency and the amplitude on the OLED and over serial.",
+          "The design samples at 100 Hz and runs an FFT on the ESP32, with a Hann window and a peak search from 3 to 15 Hz. The peak is shown on the OLED.",
         ],
         learned: [
-          "Validation is planned, not finished. The plan is to run the device against vibration sources of known frequency, compare the measured peak with the true value and report the error.",
-          "[PLACEHOLDER: which vibration sources and frequencies. Add the results once you have them.]",
-          "I'm not testing it on people. Research on human subjects needs ethics approval, so everything this project can show is about the instrument, not about patients.",
-          "Limits I already know about: a bench source vibrates at one clean frequency and a real tremor does not. Nothing here says whether the device would be useful in a clinic.",
+          "Validation is planned against a known-frequency vibration source. I have no results to report.",
         ],
       },
     },
@@ -197,15 +185,11 @@ window.PORTFOLIO = {
       title: "RNA-seq reanalysis",
       status: "progress",
       statusLabel: "",
-      context: "Self-directed · Solo",
-      hook: "Rerunning the differential expression analysis of a public bulk RNA-seq dataset with DESeq2, then comparing my results with the original paper's.",
-      role: "Solo. In progress.",
-      tags: ["R", "DESeq2", "Bulk RNA-seq"],
-      links: [
-        { label: "GitHub", url: "" },
-        { label: "Dataset", url: "" },
-        { label: "Paper", url: "" },
-      ],
+      context: "",
+      hook: "In progress: reanalysing a public RNA-seq dataset with DESeq2 and comparing against the original paper.",
+      role: "",
+      tags: ["R", "DESeq2"],
+      links: [],
       image: {
         src: "",
         alt: "",
@@ -215,22 +199,11 @@ window.PORTFOLIO = {
       ],
       caseStudy: {
         problem: [
-          "Differential expression results depend on analysis choices: how counts are filtered and normalized, what the model includes and where the significance cut-offs sit. I want to learn the method properly, and the most honest way I can think of is to repeat a published analysis and see whether I get the same answer.",
+          "In progress: reanalysing a public RNA-seq dataset with DESeq2 and comparing against the original paper.",
         ],
-        built: [
-          "This project is in progress.",
-          "[PLACEHOLDER: the dataset, what it compares and the paper it comes from.]",
-          "The repository will hold the code, a comparison with the paper's reported results and a limitations section.",
-        ],
-        how: [
-          "The plan: start from the public data, run differential expression with DESeq2 in R, then line my results up against the paper's. Which genes are called significant, in which direction and by how much.",
-          "[PLACEHOLDER: whether you start from raw reads or from the deposited count matrix.]",
-        ],
-        learned: [
-          "[PLACEHOLDER: what is done so far, or \"No results yet.\"]",
-          "When it's finished, this section will say how closely my results match the paper's, where they differ and what I think explains the difference.",
-          "Limits I can state now: I'm working from someone else's deposited data, so I can't check anything upstream of it. And one reanalysis by a second-year student is a learning exercise, not a replication study.",
-        ],
+        built: [],
+        how: [],
+        learned: [],
       },
     },
 

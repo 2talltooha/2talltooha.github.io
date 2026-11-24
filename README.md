@@ -74,7 +74,7 @@ All featured projects and the smaller-tools grid live in **`data/projects.js`**.
 5. Fill in title, hook, role, tags, links, case study.
 6. Save and refresh.
 
-Leave a link’s `url` as `""` to hide that button. Write unfinished bits as `[PLACEHOLDER: …]` so they stay highlighted until you replace them.
+Leave a link’s `url` as `""` to hide that button. Unfinished bits can be wrapped so they stay highlighted until you replace them.
 
 Site-wide links at the top of the same file:
 
@@ -86,7 +86,7 @@ Site-wide links at the top of the same file:
 
 ### Experience, research, about, hackathons
 
-Those sections are written in **`index.html`**. Search for the section id (`research`, `experience`, `hackathons`, `about`, `contact`) and edit the text. Yellow `[PLACEHOLDER: …]` markers show what still needs a real answer.
+Those sections are written in **`index.html`**. Search for the section id (`research`, `experience`, `hackathons`, `about`, `contact`) and edit the text. Yellow highlighted notes show what still needs a real answer.
 
 Optional rows that are switched off (Emergency Department volunteer, TreeHacks 2027) sit inside HTML comments labelled `SWITCH`. Delete the two `SWITCH` lines around a row to show it.
 
